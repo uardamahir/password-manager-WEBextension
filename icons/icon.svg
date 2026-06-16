@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8aa3ff"/>
+      <stop offset="1" stop-color="#5a78e6"/>
+    </linearGradient>
+  </defs>
+  <!-- kalkan -->
+  <path d="M64 14 L104 28 L104 62 C104 90 86 107 64 115 C42 107 24 90 24 62 L24 28 Z"
+        fill="url(#g)" stroke="#33417a" stroke-width="2.5" stroke-linejoin="round"/>
+  <!-- anahtar deliği -->
+  <circle cx="64" cy="54" r="11" fill="#ffffff"/>
+  <path d="M59 61 L69 61 L72 83 L56 83 Z" fill="#ffffff"/>
+</svg>

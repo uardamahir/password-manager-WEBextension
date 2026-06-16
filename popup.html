@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="popup.css" />
+  <title>Aegis</title>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="lock-dot" id="lockDot"></span> Aegis</div>
+      <div class="topbar-actions">
+        <button id="infoBtn" class="icon-btn" title="Güvenlik ve sınırlar">ⓘ</button>
+        <button id="lockBtn" class="icon-btn" hidden>Kilitle</button>
+      </div>
+    </header>
+
+    <!-- KURULUM -->
+    <section id="screen-setup" class="screen" hidden>
+      <h2>Kasanı oluştur</h2>
+      <p class="muted">Tek bir master parola belirle. Bunu kimse kurtaramaz — unutursan kasaya bir daha girilmez.</p>
+      <input id="setupPw" class="field" type="password" placeholder="Master parola" />
+      <div class="strength" id="strengthWrap" hidden>
+        <div class="meter"><div id="strengthBar" class="meter-fill"></div></div>
+        <span id="strengthLabel" class="strength-label"></span>
+      </div>
+      <input id="setupPw2" class="field" type="password" placeholder="Master parola (tekrar)" />
+      <button id="createBtn" class="btn primary">Kasayı oluştur</button>
+      <p id="setupError" class="error" hidden></p>
+      <div class="notice">
+        Bu bir <strong>öğrenme / demo</strong> projesidir; bağımsız güvenlik denetimi yapılmamıştır. Gerçek parolalarını burada saklama.
+      </div>
+    </section>
+
+    <!-- KİLİT AÇ -->
+    <section id="screen-unlock" class="screen" hidden>
+      <h2>Tekrar hoş geldin</h2>
+      <p class="muted">Kasanı açmak için master parolanı gir.</p>
+      <input id="unlockPw" class="field" type="password" placeholder="Master parola" />
+      <button id="unlockBtn" class="btn primary">Kilidi aç</button>
+      <p id="unlockError" class="error" hidden></p>
+    </section>
+
+    <!-- KASA -->
+    <section id="screen-vault" class="screen" hidden>
+      <div class="toolbar">
+        <input id="search" class="field search" type="search" placeholder="Ara" />
+        <button id="addBtn" class="btn small">+ Ekle</button>
+      </div>
+      <div class="scanbar">
+        <button id="scanBtn" class="btn ghost small">Sızıntıları tara</button>
+        <span id="scanStatus" class="hint"></span>
+      </div>
+      <ul id="entryList" class="entry-list"></ul>
+      <div id="emptyMsg" class="empty" hidden>
+        <div class="empty-badge">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+            <path d="M12 3l7 3v5c0 4.6-3 7.6-7 9-4-1.4-7-4.4-7-9V6l7-3z"/>
+          </svg>
+        </div>
+        <p class="empty-title">Kasan boş</p>
+        <p class="muted">"+ Ekle" ile ilk kaydını oluştur.</p>
+      </div>
+
+      <div id="entryForm" class="form" hidden>
+        <input id="fTitle" class="field" placeholder="Başlık (örn. Gmail)" />
+        <input id="fUrl" class="field" placeholder="Site (örn. gmail.com)" />
+        <input id="fUser" class="field" placeholder="Kullanıcı adı / e-posta" />
+        <div class="pw-row">
+          <div class="pw-input">
+            <input id="fPass" class="field" type="password" placeholder="Parola" />
+            <button id="togglePass" class="eye" type="button" title="Göster / gizle">Göster</button>
+          </div>
+          <button id="genBtn" class="btn small">Üret</button>
+        </div>
+        <textarea id="fNotes" class="field" placeholder="Notlar (opsiyonel)"></textarea>
+        <div class="form-actions">
+          <button id="saveBtn" class="btn primary">Kaydet</button>
+          <button id="cancelBtn" class="btn ghost">Vazgeç</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- GÜVENLİK PANELİ -->
+    <section id="aboutPanel" class="screen about" hidden>
+      <h2>Güvenlik ve sınırlar</h2>
+      <p class="warn-box">Bu, Web Crypto API üzerine kurulu açık kaynak bir <strong>öğrenme / demo</strong> projesidir. Bağımsız denetimden geçmedi — <strong>gerçek parolalarını burada saklama.</strong></p>
+      <p class="muted">Kasan AES-256-GCM ile şifrelenir; anahtar master parolandan PBKDF2 (600.000 tur) + salt ile türetilir. Master parola ve anahtar diske hiç yazılmaz; her şey cihazında kalır.</p>
+      <p class="sec-h">Korur</p>
+      <ul class="sec-list">
+        <li>Disk / dosya hırsızlığı — diskten yalnızca şifreli veri çıkar</li>
+        <li>Rainbow table saldırıları — salt sayesinde</li>
+        <li>Veri kurcalama — AES-GCM doğrulama etiketiyle</li>
+        <li>Kötü niyetli sitelerin kasaya erişimi</li>
+      </ul>
+      <p class="sec-h danger">Korumaz</p>
+      <ul class="sec-list">
+        <li>Açıkken ele geçen cihaz (zararlı yazılım, keylogger)</li>
+        <li>Zayıf master parola — güvenlik ona dayanır</li>
+        <li>Parolanı unutman / yedeğin olmaması</li>
+        <li>Denetlenmemiş koddaki bilinmeyen hatalar</li>
+      </ul>
+    </section>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
