@@ -4,6 +4,12 @@
 
 > ⚠️ **This is a learning / demo project.** It has **not** undergone an independent security audit. **Do not store real-world passwords in it.** It is published openly to demonstrate the engineering and cryptography — not as a product to trust with real secrets.
 
+<img width="609" height="128" alt="ss1" src="https://github.com/user-attachments/assets/a51d26a8-c950-44da-8e47-e2df2e985331" />
+
+<img width="269" height="289" alt="ss2" src="https://github.com/user-attachments/assets/e384af74-1106-43a4-b70d-ac680086919a" />
+
+<img width="269" height="200" alt="ss3" src="https://github.com/user-attachments/assets/afcf4c60-210d-4718-a22f-ed0e152f0b41" />
+
 ## Features
 - Encrypted vault protected by a single master password
 - Store, edit, search and delete credentials
