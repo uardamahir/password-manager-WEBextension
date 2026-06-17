@@ -9,7 +9,7 @@
 # <img width="269" height="289" alt="ss2" src="https://github.com/user-attachments/assets/e384af74-1106-43a4-b70d-ac680086919a" />
 
 # <img width="269" height="200" alt="ss3" src="https://github.com/user-attachments/assets/afcf4c60-210d-4718-a22f-ed0e152f0b41" />
-
+ 
 ## Features
 - Encrypted vault protected by a single master password
 - Store, edit, search and delete credentials
